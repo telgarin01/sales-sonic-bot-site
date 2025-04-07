@@ -6,47 +6,99 @@
   <title>Бизнес-Бот в Telegram</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Общие стили */
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       background: #f8f9fa;
       color: #212529;
+      line-height: 1.6;
     }
+    
+    /* Шапка */
     header {
-      padding: 2rem;
+      padding: 4rem 2rem;
       text-align: center;
       background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      border-bottom: 3px solid #0088cc;
     }
+    
     h1 {
-      font-size: 2rem;
-      margin: 0.5rem 0;
+      font-size: 3rem;
+      color: #0077b6;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-out;
     }
+
     p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 1rem auto;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #495057;
+      opacity: 0;
+      animation: fadeIn 2s 0.5s forwards;
     }
+
+    /* Кнопка с анимацией */
     .cta-button {
       display: inline-block;
       background-color: #0088cc;
       color: white;
-      padding: 1rem 2rem;
+      padding: 1.2rem 3rem;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      margin-top: 1.5rem;
-      transition: background 0.3s;
+      font-size: 1.2rem;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     .cta-button:hover {
       background-color: #0077b6;
+      transform: scale(1.05);
     }
+
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+
+    /* Подвал */
     footer {
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+      padding: 2rem;
+      font-size: 1rem;
       color: #6c757d;
+      background-color: #fff;
+      box-shadow: 0 -6px 12px rgba(0,0,0,0.1);
+      margin-top: 3rem;
+    }
+
+    /* Анимация появления */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Мобильная адаптация */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -54,7 +106,7 @@
 
 <header>
   <h1>Ваш Бизнес-Консультант в Telegram</h1>
-  <p>Бот помогает предпринимателям и инвесторам получать быстрые и точные советы по финансам, стратегии и управлению.</p>
+  <p>Наш бот помогает предпринимателям и инвесторам быстро получать точные советы по вопросам финансов, стратегии и управления. Просто откройте бота, и получите профессиональную консультацию прямо в Telegram!</p>
   <a href="https://t.me/SalesSonic_bot" class="cta-button" target="_blank">Открыть в Telegram</a>
 </header>
 
