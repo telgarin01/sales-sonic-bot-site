@@ -87,6 +87,41 @@
     li {
       padding: 0.5rem 0;
     }
+    .how-it-works {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      text-align: left;
+    }
+    .how-it-works div {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .how-it-works h3 {
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .testimonial {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .testimonial p {
+      font-style: italic;
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 1rem;
+      color: var(--primary);
+    }
     form {
       max-width: 500px;
       margin: auto;
@@ -154,6 +189,24 @@
   <p>Sales Sonic — это интеллектуальный Telegram-бот, созданный для того, чтобы помогать предпринимателям принимать обоснованные решения, анализировать бизнес-показатели и достигать новых вершин.</p>
 </section>
 
+<section id="how-it-works">
+  <h2>Как это работает</h2>
+  <div class="how-it-works">
+    <div>
+      <h3>1. Запустите бот</h3>
+      <p>Перейдите в Telegram и начните чат с Sales Sonic.</p>
+    </div>
+    <div>
+      <h3>2. Выберите тему</h3>
+      <p>Выберите интересующую категорию: финансы, стратегия, масштабирование и др.</p>
+    </div>
+    <div>
+      <h3>3. Получите советы</h3>
+      <p>Мгновенно получите чёткий, практичный ответ от ИИ.</p>
+    </div>
+  </div>
+</section>
+
 <section id="services">
   <h2>Услуги</h2>
   <ul>
@@ -163,6 +216,24 @@
     <li>💼 Консультации по развитию бизнеса</li>
   </ul>
   <a href="https://t.me/SalesSonic_bot" class="cta-button" target="_blank">Получить консультацию</a>
+</section>
+
+<section id="testimonials">
+  <h2>Отзывы клиентов</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <p>«Sales Sonic помог мне проанализировать нишу перед запуском. Очень удобно — всё прямо в Telegram!»</p>
+      <strong>Алина К., предприниматель</strong>
+    </div>
+    <div class="testimonial">
+      <p>«Раньше тратил часы на поиск решений. Теперь — 2 клика и получаю чёткий бизнес-ответ. Рекомендую!»</p>
+      <strong>Дмитрий С., основатель стартапа</strong>
+    </div>
+    <div class="testimonial">
+      <p>«Бот дал больше пользы, чем некоторые дорогие консультации. Очень круто!»</p>
+      <strong>Мария Р., фриланс-маркетолог</strong>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
