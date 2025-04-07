@@ -3,198 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Бизнес-Бот в Telegram</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Sales Sonic — Бизнес-Бот в Telegram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/a/a7/Telegram_2019_logo.svg">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
+    :root {
+      --primary: #0077b6;
+      --secondary: #00b4d8;
+      --accent: #90e0ef;
+      --light: #f1f1f1;
+      --dark: #03045e;
+    }
+    * {
       margin: 0;
       padding: 0;
-      background: #f8f9fa;
-      color: #212529;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: #333;
       line-height: 1.6;
     }
-
-    /* Шапка и навигация */
     header {
-      background-color: #0077b6;
-      padding: 2rem;
-      text-align: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    nav {
-      margin-top: 1rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      margin: 0 1rem;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #005f8d;
-      border-radius: 4px;
-    }
-
-    /* Секция главного контента */
-    section {
-      padding: 3rem 2rem;
+      padding: 6rem 2rem 4rem;
       text-align: center;
+      position: relative;
     }
-
-    h2 {
-      font-size: 2rem;
-      color: #0077b6;
+    header img {
+      width: 80px;
       margin-bottom: 1rem;
     }
-
-    .cta-button {
-      display: inline-block;
-      background-color: #0088cc;
-      color: white;
-      padding: 1.2rem 3rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    header p {
       font-size: 1.2rem;
-      transition: background 0.3s, transform 0.3s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .cta-button:hover {
-      background-color: #0077b6;
-      transform: scale(1.05);
-    }
-
-    .cta-button:active {
-      transform: scale(0.98);
-    }
-
-    /* Форма обратной связи */
-    form {
       max-width: 600px;
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 2rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+      margin: 0 auto 2rem;
     }
-
+    .cta-button {
+      background: white;
+      color: var(--primary);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    section {
+      padding: 5rem 2rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    section p, section ul {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.5rem 0;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+    }
     form input, form textarea {
       width: 100%;
       padding: 1rem;
       margin-bottom: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
     }
-
     form button {
       width: 100%;
-      padding: 1rem;
-      background-color: #0077b6;
+      background: var(--primary);
       color: white;
-      font-size: 1.2rem;
       border: none;
-      border-radius: 8px;
+      padding: 1rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
       cursor: pointer;
     }
-
     form button:hover {
-      background-color: #005f8d;
+      background: var(--secondary);
     }
-
-    /* Подвал */
+    #thanks-message {
+      display: none;
+      font-size: 1.2rem;
+      color: #28a745;
+      margin-top: 1rem;
+    }
     footer {
-      background-color: #f1f1f1;
+      background: var(--dark);
+      color: white;
       text-align: center;
-      padding: 2rem;
-      font-size: 1rem;
-      color: #6c757d;
+      padding: 3rem 2rem;
     }
-
     footer a {
-      color: #0077b6;
+      color: var(--accent);
       text-decoration: none;
     }
-
     footer a:hover {
       text-decoration: underline;
     }
-
-    /* Мобильная адаптация */
-    @media screen and (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-      .cta-button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-      }
+    .scroll-to {
+      margin-top: 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Бизнес-Бот в Telegram</h1>
-  <nav>
-    <a href="#about">О компании</a>
-    <a href="#services">Услуги</a>
-    <a href="#contact">Контакты</a>
-    <a href="#privacy">Политика конфиденциальности</a>
-  </nav>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Telegram_2019_logo.svg" alt="Telegram Icon">
+  <h1>Sales Sonic — Ваш бизнес-консультант</h1>
+  <p>Получите профессиональные советы по развитию и управлению бизнесом через наш умный Telegram-бот.</p>
+  <a href="https://t.me/SalesSonic_bot" class="cta-button" target="_blank">Открыть бот</a>
+  <div class="scroll-to"><a href="#about" style="color:white;">Узнать больше ↓</a></div>
 </header>
 
-<!-- О компании -->
 <section id="about">
-  <h2>О компании</h2>
-  <p>Мы предоставляем бизнес-консультации и персонализированные рекомендации через Telegram-бота, который поможет вам принимать важные бизнес-решения. Мы ценим доверие и прозрачность в отношениях с нашими клиентами.</p>
-  <a href="https://t.me/SalesSonic_bot" class="cta-button" target="_blank">Открыть в Telegram</a>
+  <h2>О нас</h2>
+  <p>Sales Sonic — это интеллектуальный Telegram-бот, созданный для того, чтобы помогать предпринимателям принимать обоснованные решения, анализировать бизнес-показатели и достигать новых вершин.</p>
 </section>
 
-<!-- Услуги -->
 <section id="services">
-  <h2>Наши услуги</h2>
+  <h2>Услуги</h2>
   <ul>
-    <li>Консультации по финансовым вопросам</li>
-    <li>Рекомендации по улучшению бизнес-стратегий</li>
-    <li>Персонализированные планы по управлению бизнесом</li>
-    <li>Анализ и прогнозирование рынка</li>
+    <li>🔍 Анализ рынка и трендов</li>
+    <li>📊 Финансовое моделирование</li>
+    <li>🧠 Стратегическое планирование</li>
+    <li>💼 Консультации по развитию бизнеса</li>
   </ul>
   <a href="https://t.me/SalesSonic_bot" class="cta-button" target="_blank">Получить консультацию</a>
 </section>
 
-<!-- Форма обратной связи -->
 <section id="contact">
-  <h2>Контакты</h2>
-  <form action="#" method="POST">
+  <h2>Связаться с нами</h2>
+  <form id="contact-form" onsubmit="return submitForm()">
     <input type="text" name="name" placeholder="Ваше имя" required>
-    <input type="email" name="email" placeholder="Ваш email" required>
-    <textarea name="message" placeholder="Сообщение" rows="4" required></textarea>
-    <button type="submit">Отправить сообщение</button>
+    <input type="email" name="email" placeholder="Email для связи" required>
+    <textarea name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+    <button type="submit">Отправить</button>
   </form>
+  <div id="thanks-message">Спасибо за обращение! Мы свяжемся с вами в ближайшее время.</div>
 </section>
 
-<!-- Политика конфиденциальности -->
 <section id="privacy">
-  <h2>Политика конфиденциальности</h2>
-  <p>Ваши данные защищены. Мы не передаем вашу информацию третьим лицам и используем только для предоставления качественных услуг.</p>
+  <h2>Политика и условия</h2>
+  <p>Ваши данные конфиденциальны и защищены. Мы не передаем вашу информацию третьим лицам без вашего согласия. Использование сайта означает согласие с нашей <a href="#">Политикой конфиденциальности</a> и <a href="#">Условиями использования</a>.</p>
 </section>
 
 <footer>
-  <p>&copy; 2025 Бизнес-Бот. Все права защищены. <br>
-  <a href="https://www.example.com/privacy-policy">Политика конфиденциальности</a> | <a href="https://www.example.com/terms-of-service">Условия использования</a></p>
+  <p>&copy; 2025 Sales Sonic. Все права защищены.</p>
+  <p><a href="#about">О компании</a> • <a href="#services">Услуги</a> • <a href="#contact">Контакты</a></p>
 </footer>
+
+<script>
+  function submitForm() {
+    document.getElementById('contact-form').reset();
+    document.getElementById('thanks-message').style.display = 'block';
+    return false;
+  }
+</script>
 
 </body>
 </html>
