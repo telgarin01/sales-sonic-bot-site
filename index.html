@@ -6,7 +6,6 @@
   <title>Бизнес-Бот в Telegram</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Общие стили */
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -15,33 +14,47 @@
       color: #212529;
       line-height: 1.6;
     }
-    
-    /* Шапка */
+
+    /* Шапка и навигация */
     header {
-      padding: 4rem 2rem;
+      background-color: #0077b6;
+      padding: 2rem;
       text-align: center;
-      background-color: #fff;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      border-bottom: 3px solid #0088cc;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    
-    h1 {
-      font-size: 3rem;
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      margin: 0 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #005f8d;
+      border-radius: 4px;
+    }
+
+    /* Секция главного контента */
+    section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
       color: #0077b6;
       margin-bottom: 1rem;
-      animation: fadeIn 1s ease-out;
     }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: #495057;
-      opacity: 0;
-      animation: fadeIn 2s 0.5s forwards;
-    }
-
-    /* Кнопка с анимацией */
     .cta-button {
       display: inline-block;
       background-color: #0088cc;
@@ -64,27 +77,55 @@
       transform: scale(0.98);
     }
 
+    /* Форма обратной связи */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #0077b6;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #005f8d;
+    }
+
     /* Подвал */
     footer {
+      background-color: #f1f1f1;
       text-align: center;
       padding: 2rem;
       font-size: 1rem;
       color: #6c757d;
-      background-color: #fff;
-      box-shadow: 0 -6px 12px rgba(0,0,0,0.1);
-      margin-top: 3rem;
     }
 
-    /* Анимация появления */
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    footer a {
+      color: #0077b6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     /* Мобильная адаптация */
@@ -105,13 +146,54 @@
 <body>
 
 <header>
-  <h1>Ваш Бизнес-Консультант в Telegram</h1>
-  <p>Наш бот помогает предпринимателям и инвесторам быстро получать точные советы по вопросам финансов, стратегии и управления. Просто откройте бота, и получите профессиональную консультацию прямо в Telegram!</p>
-  <a href="https://t.me/SalesSonic_bot" class="cta-button" target="_blank">Открыть в Telegram</a>
+  <h1>Бизнес-Бот в Telegram</h1>
+  <nav>
+    <a href="#about">О компании</a>
+    <a href="#services">Услуги</a>
+    <a href="#contact">Контакты</a>
+    <a href="#privacy">Политика конфиденциальности</a>
+  </nav>
 </header>
 
+<!-- О компании -->
+<section id="about">
+  <h2>О компании</h2>
+  <p>Мы предоставляем бизнес-консультации и персонализированные рекомендации через Telegram-бота, который поможет вам принимать важные бизнес-решения. Мы ценим доверие и прозрачность в отношениях с нашими клиентами.</p>
+  <a href="https://t.me/SalesSonic_bot" class="cta-button" target="_blank">Открыть в Telegram</a>
+</section>
+
+<!-- Услуги -->
+<section id="services">
+  <h2>Наши услуги</h2>
+  <ul>
+    <li>Консультации по финансовым вопросам</li>
+    <li>Рекомендации по улучшению бизнес-стратегий</li>
+    <li>Персонализированные планы по управлению бизнесом</li>
+    <li>Анализ и прогнозирование рынка</li>
+  </ul>
+  <a href="https://t.me/SalesSonic_bot" class="cta-button" target="_blank">Получить консультацию</a>
+</section>
+
+<!-- Форма обратной связи -->
+<section id="contact">
+  <h2>Контакты</h2>
+  <form action="#" method="POST">
+    <input type="text" name="name" placeholder="Ваше имя" required>
+    <input type="email" name="email" placeholder="Ваш email" required>
+    <textarea name="message" placeholder="Сообщение" rows="4" required></textarea>
+    <button type="submit">Отправить сообщение</button>
+  </form>
+</section>
+
+<!-- Политика конфиденциальности -->
+<section id="privacy">
+  <h2>Политика конфиденциальности</h2>
+  <p>Ваши данные защищены. Мы не передаем вашу информацию третьим лицам и используем только для предоставления качественных услуг.</p>
+</section>
+
 <footer>
-  &copy; 2025 Бизнес-Бот. Все права защищены.
+  <p>&copy; 2025 Бизнес-Бот. Все права защищены. <br>
+  <a href="https://www.example.com/privacy-policy">Политика конфиденциальности</a> | <a href="https://www.example.com/terms-of-service">Условия использования</a></p>
 </footer>
 
 </body>
